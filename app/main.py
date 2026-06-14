@@ -11,7 +11,7 @@ from contextlib import asynccontextmanager
 from app.database import engine, Base
 from app.routers import auth, users, budgets, transactions, goals, reports, ai_advisor, stripe as stripe_router
 from app.middleware.rate_limit import RateLimitMiddleware
-
+from app.routers import plaid as plaid_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -57,6 +57,7 @@ app.include_router(goals.router,        prefix="/api/v1/goals",        tags=["Go
 app.include_router(reports.router,      prefix="/api/v1/reports",      tags=["Reports"])
 app.include_router(ai_advisor.router,   prefix="/api/v1/ai",           tags=["AI Advisor"])
 app.include_router(stripe_router.router, prefix="/api/v1/stripe",      tags=["Stripe"])
+app.include_router(plaid_router.router, prefix="/api/v1/plaid", tags=["Plaid"])
 
 @app.get("/", tags=["Health"])
 async def root():

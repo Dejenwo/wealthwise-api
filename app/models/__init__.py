@@ -60,6 +60,8 @@ class User(Base):
     )
     stripe_customer_id: Mapped[str | None]     = mapped_column(String(100), nullable=True)
     stripe_subscription_id: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    plaid_access_token: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    plaid_institution: Mapped[str | None]  = mapped_column(String(255), nullable=True)
     pro_expires_at: Mapped[datetime | None]    = mapped_column(DateTime(timezone=True), nullable=True)
 
     # Flags

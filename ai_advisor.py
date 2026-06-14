@@ -159,7 +159,7 @@ async def get_ai_insight(
 
     client  = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
     message = client.messages.create(
-        model="claude-sonnet-4-6",
+        model="claude-haiku-4-5-20251001",
         max_tokens=600,
         system=_build_system_prompt(),
         messages=[{"role": "user", "content": _build_user_prompt(ctx, body.question)}],
