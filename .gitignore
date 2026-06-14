@@ -1,2 +1,4 @@
 wealthwise.db
 wealthwise.db
+.env
+.env.example
